@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website</title>
+    <link
+    rel="preload"
+    as="style"
+    href="{% static 'css/style.css' %}"
+    onload="this.rel = 'stylesheet'"
+  />
+    <script src="https://kit.fontawesome.com/e674bba739.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    {% include 'partials/header.html' %}
+    <!-- ----------ABOUT---------- -->
+    {% include 'about.html' %}
+    <!-- ----------SERVICES---------- -->
+    {% include 'services.html' %}
+
+    <!-- ----------CONTACT---------- -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p><i class="fas fa-paper-plane"></i> Proggenius4u@gmail.com</p>
+                    <p><i class="fas fa-link"></i><a href="http://bit.ly/46bagvR">http://bit.ly/46bagvR</a></p>
+                
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter-square"></i></a>
+                        <a href="https://instagram.com/programming_genius?igshid=OGQ5ZDc2ODk2ZA=="><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                  
+                </div>
+               
+            </div>
+        </div>
+        <div class="copyright">
+            <p>copyright @ ProgGenius. Made with <i class="fas fa-heart"></i> by ProgGenius</p>
+        </div>
+    </div>
+
+
+
+    <script>
+        var tabLinks = document.getElementsByClassName('tab-links');
+        var tabContents = document.getElementsByClassName('tab-contents');
+
+        function openTab(tabName) {
+            for (tabLink of tabLinks) {
+                tabLink.classList.remove('active-link');
+            }
+            for (tabContent of tabContents) {
+                tabContent.classList.remove('active-tab');
+            }
+            event.currentTarget.classList.add('active-link');
+            document.getElementById(tabName).classList.add('active-tab');
+        }
+
+        
+    // JavaScript for handling the mobile navigation menu
+    document.querySelector('.fas.fa-bars').addEventListener('click', function () {
+        document.querySelector('nav ul').classList.toggle('show');
+    });
+
+    document.querySelector('.fas.fa-times').addEventListener('click', function () {
+        document.querySelector('nav ul').classList.remove('show');
+    });
+
+    // Scroll to the target section smoothly when the "About" link is clicked
+    document.querySelector('.scroll-link').addEventListener('click', function (event) {
+            event.preventDefault();
+            document.querySelector('#about').scrollIntoView({
+                behavior: 'smooth'
+        });
+    });
+    document.querySelector('.scroll-linkservices').addEventListener('click', function (event) {
+            event.preventDefault();
+            document.querySelector('#services').scrollIntoView({
+                behavior: 'smooth'
+        });
+    });
+    document.querySelector('.scroll-portfolio').addEventListener('click', function (event) {
+            event.preventDefault();
+            document.querySelector('#portfolio').scrollIntoView({
+                behavior: 'smooth'
+        });
+    });
+    document.querySelector('.scroll-contact').addEventListener('click', function (event) {
+            event.preventDefault();
+            document.querySelector('#contact').scrollIntoView({
+                behavior: 'smooth'
+        });
+    });
+</script>
+</body>
+
+</html>
